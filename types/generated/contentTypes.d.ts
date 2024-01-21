@@ -362,6 +362,65 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
+  collectionName: 'newsarticels';
+  info: {
+    singularName: 'newsarticel';
+    pluralName: 'newsarticels';
+    displayName: 'newsarticel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    header: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    teaser: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsarticel.newsarticel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsarticel.newsarticel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::newsarticel.newsarticel',
+      'oneToMany',
+      'api::newsarticel.newsarticel'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiRecommendationRecommendation extends Schema.CollectionType {
   collectionName: 'recommendations';
   info: {
@@ -849,6 +908,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
