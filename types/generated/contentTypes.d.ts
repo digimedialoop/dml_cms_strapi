@@ -367,7 +367,7 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   info: {
     singularName: 'newsarticel';
     pluralName: 'newsarticels';
-    displayName: 'newsarticel';
+    displayName: 'newsarticle';
     description: '';
   };
   options: {
