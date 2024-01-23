@@ -1,6 +1,6 @@
 module.exports = ({ env }) => ({
     email: {
-      provider: 'nodemailer',
+      provider: 'sendmail',
       providerOptions: {
         host: env('SMTP_HOST', 'smtp.example.com'),
         port: env('SMTP_PORT', 587),
