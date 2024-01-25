@@ -791,6 +791,8 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
     latitude: Attribute.String;
     longitute: Attribute.String;
     web: Attribute.String;
+    logo: Attribute.Media;
+    invertlogo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
