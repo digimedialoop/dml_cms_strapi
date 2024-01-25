@@ -39,6 +39,18 @@
     "contact": {
       "pluginOptions": {},
       "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitute": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
     }
   }
 }

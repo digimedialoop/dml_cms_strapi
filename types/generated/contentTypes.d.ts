@@ -787,6 +787,10 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
     phone: Attribute.String;
     email: Attribute.Email;
     contact: Attribute.String;
+    district: Attribute.String;
+    latitude: Attribute.String;
+    longitute: Attribute.String;
+    web: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
