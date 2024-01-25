@@ -811,6 +811,39 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   };
 }
 
+export interface ApiCustomerCustomer extends Schema.CollectionType {
+  collectionName: 'customers';
+  info: {
+    singularName: 'customer';
+    pluralName: 'customers';
+    displayName: 'customer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Attribute.String;
+    logo: Attribute.Media;
+    invertLogo: Attribute.Media;
+    city: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer.customer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer.customer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   collectionName: 'newsarticels';
   info: {
@@ -973,6 +1006,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::companyinfo.companyinfo': ApiCompanyinfoCompanyinfo;
+      'api::customer.customer': ApiCustomerCustomer;
       'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
     }
