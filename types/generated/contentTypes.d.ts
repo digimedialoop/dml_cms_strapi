@@ -779,48 +779,14 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    company: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    street: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    postalcode: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    city: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    phone: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    email: Attribute.Email &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    company: Attribute.String;
+    street: Attribute.String;
+    postalcode: Attribute.String;
+    city: Attribute.String;
+    phone: Attribute.String;
+    email: Attribute.Email;
+    contact: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -836,12 +802,6 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::companyinfo.companyinfo',
-      'oneToMany',
-      'api::companyinfo.companyinfo'
-    >;
-    locale: Attribute.String;
   };
 }
 
