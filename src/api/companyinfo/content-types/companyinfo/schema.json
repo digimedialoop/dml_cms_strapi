@@ -4,7 +4,7 @@
   "info": {
     "singularName": "companyinfo",
     "pluralName": "companyinfos",
-    "displayName": "companyinfo",
+    "displayName": "Firmendaten",
     "description": ""
   },
   "options": {
@@ -53,21 +53,23 @@
       "type": "string"
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "invertlogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

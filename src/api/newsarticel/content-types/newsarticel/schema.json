@@ -4,7 +4,7 @@
   "info": {
     "singularName": "newsarticel",
     "pluralName": "newsarticels",
-    "displayName": "newsarticle",
+    "displayName": "Nachrichten",
     "description": ""
   },
   "options": {
@@ -51,11 +51,12 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false

@@ -773,7 +773,7 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   info: {
     singularName: 'companyinfo';
     pluralName: 'companyinfos';
-    displayName: 'companyinfo';
+    displayName: 'Firmendaten';
     description: '';
   };
   options: {
@@ -816,7 +816,8 @@ export interface ApiCustomerCustomer extends Schema.CollectionType {
   info: {
     singularName: 'customer';
     pluralName: 'customers';
-    displayName: 'customer';
+    displayName: 'Kunden';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -849,7 +850,7 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   info: {
     singularName: 'newsarticel';
     pluralName: 'newsarticels';
-    displayName: 'newsarticle';
+    displayName: 'Nachrichten';
     description: '';
   };
   options: {
@@ -916,12 +917,106 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   };
 }
 
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Seiteninformationen (SEO)';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    keywords: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 156;
+      }>;
+    type: Attribute.Enumeration<
+      [
+        'article',
+        'book',
+        'event',
+        'game',
+        'music',
+        'place',
+        'product',
+        'profile',
+        'video',
+        'website'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'website'>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    url: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page.page',
+      'oneToMany',
+      'api::page.page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiRecommendationRecommendation extends Schema.CollectionType {
   collectionName: 'recommendations';
   info: {
     singularName: 'recommendation';
     pluralName: 'recommendations';
-    displayName: 'recommendation';
+    displayName: 'Empfehlungen';
     description: '';
   };
   options: {
@@ -1008,6 +1103,7 @@ declare module '@strapi/types' {
       'api::companyinfo.companyinfo': ApiCompanyinfoCompanyinfo;
       'api::customer.customer': ApiCustomerCustomer;
       'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
+      'api::page.page': ApiPagePage;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
     }
   }
