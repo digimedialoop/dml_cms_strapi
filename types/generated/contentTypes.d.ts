@@ -1006,7 +1006,7 @@ export interface ApiPagePage extends Schema.CollectionType {
     };
   };
   attributes: {
-    title: Attribute.String &
+    page_title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1083,6 +1083,16 @@ export interface ApiPagePage extends Schema.CollectionType {
         maxLength: 30;
       }>;
     parent: Attribute.Relation<'api::page.page', 'oneToOne', 'api::page.page'>;
+    nav_title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "page_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -113,6 +113,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::page.page"
+    },
+    "nav_title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "maxLength": 30,
+      "required": true
     }
   }
 }
