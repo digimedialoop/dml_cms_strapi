@@ -1186,6 +1186,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     singularName: 'team';
     pluralName: 'teams';
     displayName: 'Team';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1214,16 +1215,16 @@ export interface ApiTeamTeam extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    introduction: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
