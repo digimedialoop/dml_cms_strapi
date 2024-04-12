@@ -811,6 +811,44 @@ export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   };
 }
 
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Kontaktaufnahmen';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstname: Attribute.String;
+    lastname: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.String;
+    page: Attribute.String;
+    text: Attribute.Text;
+    contactType: Attribute.String;
+    language: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCustomerCustomer extends Schema.CollectionType {
   collectionName: 'customers';
   info: {
@@ -1262,6 +1300,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::companyinfo.companyinfo': ApiCompanyinfoCompanyinfo;
+      'api::contact.contact': ApiContactContact;
       'api::customer.customer': ApiCustomerCustomer;
       'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
       'api::package.package': ApiPackagePackage;
