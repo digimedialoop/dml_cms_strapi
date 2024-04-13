@@ -956,12 +956,11 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
 }
 
 export interface ApiPackagePackage extends Schema.CollectionType {
-  collectionName: 'packetes';
+  collectionName: 'packages';
   info: {
     singularName: 'package';
-    pluralName: 'packetes';
+    pluralName: 'packages';
     displayName: 'Pakete';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -972,32 +971,25 @@ export interface ApiPackagePackage extends Schema.CollectionType {
     };
   };
   attributes: {
-    title: Attribute.String &
-      Attribute.Required &
+    titel: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    teaser: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Attribute.UID<'api::package.package', 'title'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    price: Attribute.Decimal &
+    description: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    price: Attribute.Decimal &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
