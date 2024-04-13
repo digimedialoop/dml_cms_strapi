@@ -831,6 +831,8 @@ export interface ApiContactContact extends Schema.CollectionType {
     text: Attribute.Text;
     contactType: Attribute.String;
     language: Attribute.String;
+    name: Attribute.String;
+    company: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -35,6 +35,12 @@
     },
     "language": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
     }
   }
 }
