@@ -833,6 +833,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     language: Attribute.String;
     name: Attribute.String;
     company: Attribute.String;
+    actionType: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

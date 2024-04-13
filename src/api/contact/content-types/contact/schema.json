@@ -41,6 +41,9 @@
     },
     "company": {
       "type": "string"
+    },
+    "actionType": {
+      "type": "string"
     }
   }
 }
