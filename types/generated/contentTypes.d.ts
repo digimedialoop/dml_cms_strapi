@@ -1282,6 +1282,116 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiTechcatTechcat extends Schema.CollectionType {
+  collectionName: 'techkats';
+  info: {
+    singularName: 'techcat';
+    pluralName: 'techkats';
+    displayName: 'Tech Kategorien';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    category: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    technologiens: Attribute.Relation<
+      'api::techcat.techcat',
+      'manyToMany',
+      'api::technology.technology'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::techcat.techcat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::techcat.techcat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::techcat.techcat',
+      'oneToMany',
+      'api::techcat.techcat'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiTechnologyTechnology extends Schema.CollectionType {
+  collectionName: 'technogogies';
+  info: {
+    singularName: 'technology';
+    pluralName: 'technogogies';
+    displayName: 'Technologien';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    titel: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    icon: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tech_categories: Attribute.Relation<
+      'api::technology.technology',
+      'manyToMany',
+      'api::techcat.techcat'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::technology.technology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::technology.technology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::technology.technology',
+      'oneToMany',
+      'api::technology.technology'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1308,6 +1418,8 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
       'api::team.team': ApiTeamTeam;
+      'api::techcat.techcat': ApiTechcatTechcat;
+      'api::technology.technology': ApiTechnologyTechnology;
     }
   }
 }

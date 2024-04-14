@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "technogogies",
+  "info": {
+    "singularName": "technology",
+    "pluralName": "technogogies",
+    "displayName": "Technologien",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "icon": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "tech_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::techcat.techcat",
+      "inversedBy": "technologiens"
+    }
+  }
+}
