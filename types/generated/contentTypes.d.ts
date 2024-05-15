@@ -768,6 +768,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAppointmentAppointment extends Schema.CollectionType {
+  collectionName: 'appointments';
+  info: {
+    singularName: 'appointment';
+    pluralName: 'appointments';
+    displayName: 'Termine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    startdate: Attribute.DateTime;
+    enddate: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   collectionName: 'companyinfos';
   info: {
@@ -1368,6 +1400,12 @@ export interface ApiTechnologyTechnology extends Schema.CollectionType {
       'manyToMany',
       'api::techcat.techcat'
     >;
+    prefix: Attribute.Enumeration<['fas', 'fab']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1410,6 +1448,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::appointment.appointment': ApiAppointmentAppointment;
       'api::companyinfo.companyinfo': ApiCompanyinfoCompanyinfo;
       'api::contact.contact': ApiContactContact;
       'api::customer.customer': ApiCustomerCustomer;

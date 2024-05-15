@@ -37,6 +37,18 @@
       "relation": "manyToMany",
       "target": "api::techcat.techcat",
       "inversedBy": "technologiens"
+    },
+    "prefix": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "fas",
+        "fab"
+      ]
     }
   }
 }
