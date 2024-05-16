@@ -16,6 +16,14 @@
     }
   },
   "attributes": {
+    "pageName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
     "url": {
       "pluginOptions": {
         "i18n": {
@@ -52,7 +60,7 @@
     "pageSections": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "dynamiczone",

@@ -1170,6 +1170,12 @@ export interface ApiPagePage extends Schema.CollectionType {
     };
   };
   attributes: {
+    pageName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     url: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1197,7 +1203,7 @@ export interface ApiPagePage extends Schema.CollectionType {
     > &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
