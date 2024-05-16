@@ -15,4 +15,8 @@ module.exports = ({ env }) => ({
         defaultReplyTo: 'info@digimedialoop.de',
       },
     },
+    customization: {
+      enabled: true,
+      resolve: './customization',
+    }
   });

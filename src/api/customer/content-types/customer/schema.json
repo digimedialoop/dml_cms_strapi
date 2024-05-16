@@ -33,6 +33,12 @@
     },
     "city": {
       "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reference.reference",
+      "mappedBy": "customer"
     }
   }
 }

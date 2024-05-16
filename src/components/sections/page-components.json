@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_page_components",
+  "info": {
+    "displayName": "Page Components",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Komponente": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pagecomponent.pagecomponent"
+    }
+  }
+}

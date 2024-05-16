@@ -1,0 +1,8 @@
+{
+    "name": "customization",
+    "version": "1.0.0",
+    "description": "Custom admin panel styles for Strapi",
+    "main": "admin/src/components/App/index.js",
+    "author": "Sabrina Hennrich - digimedialoop",
+    "license": "MIT"
+  }

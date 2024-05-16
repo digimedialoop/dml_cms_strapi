@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_standard_sections",
+  "info": {
+    "displayName": "Standard Section",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionText": {
+      "type": "blocks"
+    },
+    "sectionImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "button": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button.button"
+    },
+    "design": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::design.design"
+    }
+  }
+}

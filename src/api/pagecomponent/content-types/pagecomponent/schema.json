@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pagecomponents",
+  "info": {
+    "singularName": "pagecomponent",
+    "pluralName": "pagecomponents",
+    "displayName": "Seitenkomponenten"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageComponent": {
+      "type": "string"
+    }
+  }
+}

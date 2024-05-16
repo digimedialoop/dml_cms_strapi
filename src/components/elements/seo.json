@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_elements_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "cast",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "seoDesicription": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "seoKeywords": {
+      "type": "string"
+    },
+    "seoImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "article",
+        "book",
+        "event",
+        "game",
+        "music",
+        "place",
+        "product",
+        "profile",
+        "video",
+        "website"
+      ],
+      "default": "website"
+    }
+  }
+}
