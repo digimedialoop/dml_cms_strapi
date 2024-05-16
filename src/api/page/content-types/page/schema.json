@@ -52,7 +52,7 @@
     "pageSections": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "dynamiczone",

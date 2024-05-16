@@ -1197,7 +1197,7 @@ export interface ApiPagePage extends Schema.CollectionType {
     > &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
