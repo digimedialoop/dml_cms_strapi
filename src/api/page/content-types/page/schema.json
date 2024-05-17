@@ -22,7 +22,8 @@
           "localized": false
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "navigation": {
       "type": "relation",
@@ -65,6 +66,5 @@
         "sections.page-components"
       ]
     }
-    
   }
 }

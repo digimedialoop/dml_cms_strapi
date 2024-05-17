@@ -1023,6 +1023,7 @@ export interface ApiNavigationNavigation extends Schema.CollectionType {
     singularName: 'navigation';
     pluralName: 'navigations';
     displayName: 'Navigation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1038,8 +1039,18 @@ export interface ApiNavigationNavigation extends Schema.CollectionType {
       'oneToOne',
       'api::page.page'
     >;
-    navTitle: Attribute.String;
-    navLink: Attribute.String;
+    navTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    navLink: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     navIcon: Attribute.String;
     mainMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
     quickMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
@@ -1222,6 +1233,7 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
   attributes: {
     pageName: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
