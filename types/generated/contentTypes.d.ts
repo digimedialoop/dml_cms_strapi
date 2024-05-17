@@ -1198,6 +1198,12 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    Navigation: Attribute.Component<'elements.navigation'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     pageSections: Attribute.DynamicZone<
       ['sections.standard-section', 'sections.page-components']
     > &
@@ -1368,6 +1374,11 @@ export interface ApiReferenceReference extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    Technologien: Attribute.Relation<
+      'api::reference.reference',
+      'manyToMany',
+      'api::technology.technology'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1553,6 +1564,11 @@ export interface ApiTechnologyTechnology extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    Projekte: Attribute.Relation<
+      'api::technology.technology',
+      'manyToMany',
+      'api::reference.reference'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

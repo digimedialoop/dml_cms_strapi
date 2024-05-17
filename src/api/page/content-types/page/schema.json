@@ -57,6 +57,16 @@
       },
       "component": "elements.seo"
     },
+    "Navigation": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "elements.navigation"
+    },
     "pageSections": {
       "pluginOptions": {
         "i18n": {
@@ -69,5 +79,6 @@
         "sections.page-components"
       ]
     }
+    
   }
 }

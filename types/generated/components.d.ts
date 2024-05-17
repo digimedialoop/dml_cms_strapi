@@ -1,5 +1,22 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ElementsNavigation extends Schema.Component {
+  collectionName: 'components_elements_navigations';
+  info: {
+    displayName: 'Navigation';
+    icon: 'paperPlane';
+    description: '';
+  };
+  attributes: {
+    navTitle: Attribute.String;
+    navLink: Attribute.String;
+    navIcon: Attribute.String;
+    mainMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    quickMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    footerMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ElementsSeo extends Schema.Component {
   collectionName: 'components_elements_seos';
   info: {
@@ -82,6 +99,7 @@ export interface SectionsStandardSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'elements.navigation': ElementsNavigation;
       'elements.seo': ElementsSeo;
       'sections.page-components': SectionsPageComponents;
       'sections.standard-section': SectionsStandardSection;

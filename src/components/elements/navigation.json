@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_elements_navigations",
+  "info": {
+    "displayName": "Navigation",
+    "icon": "paperPlane",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "navTitle": {
+      "type": "string"
+    },
+    "navLink": {
+      "type": "string"
+    },
+    "navIcon": {
+      "type": "string"
+    },
+    "mainMenu": {
+      "type": "boolean",
+      "default": false
+    },
+    "quickMenu": {
+      "type": "boolean",
+      "default": false
+    },
+    "footerMenu": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

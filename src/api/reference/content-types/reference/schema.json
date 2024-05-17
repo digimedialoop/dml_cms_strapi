@@ -59,6 +59,12 @@
         }
       },
       "type": "blocks"
+    },
+    "Technologien": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::technology.technology",
+      "inversedBy": "Projekte"
     }
   }
 }

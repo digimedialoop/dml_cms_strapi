@@ -49,6 +49,12 @@
         "fas",
         "fab"
       ]
+    },
+    "Projekte": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::reference.reference",
+      "mappedBy": "Technologien"
     }
   }
 }
