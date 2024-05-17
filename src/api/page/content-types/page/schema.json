@@ -24,15 +24,11 @@
       },
       "type": "string"
     },
-    "url": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "required": true,
-      "maxLength": 150
+    "navigation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navigation.navigation",
+      "mappedBy": "pageName"
     },
     "header_image": {
       "type": "media",
@@ -56,16 +52,6 @@
         }
       },
       "component": "elements.seo"
-    },
-    "Navigation": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "elements.navigation"
     },
     "pageSections": {
       "pluginOptions": {

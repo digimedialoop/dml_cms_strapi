@@ -1017,6 +1017,57 @@ export interface ApiDesignDesign extends Schema.CollectionType {
   };
 }
 
+export interface ApiNavigationNavigation extends Schema.CollectionType {
+  collectionName: 'navigations';
+  info: {
+    singularName: 'navigation';
+    pluralName: 'navigations';
+    displayName: 'Navigation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    pageName: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'api::page.page'
+    >;
+    navTitle: Attribute.String;
+    navLink: Attribute.String;
+    navIcon: Attribute.String;
+    mainMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    quickMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    footerMenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToMany',
+      'api::navigation.navigation'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   collectionName: 'newsarticels';
   info: {
@@ -1176,16 +1227,11 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    url: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 150;
-      }>;
+    navigation: Attribute.Relation<
+      'api::page.page',
+      'oneToOne',
+      'api::navigation.navigation'
+    >;
     header_image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1193,12 +1239,6 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     SEO: Attribute.Component<'elements.seo'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Navigation: Attribute.Component<'elements.navigation'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1617,6 +1657,7 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::customer.customer': ApiCustomerCustomer;
       'api::design.design': ApiDesignDesign;
+      'api::navigation.navigation': ApiNavigationNavigation;
       'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
       'api::package.package': ApiPackagePackage;
       'api::page.page': ApiPagePage;
