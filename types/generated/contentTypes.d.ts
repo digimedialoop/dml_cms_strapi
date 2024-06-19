@@ -1127,6 +1127,12 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    testfield: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

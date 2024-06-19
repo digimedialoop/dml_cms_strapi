@@ -17,5 +17,8 @@ module.exports = ({ env }) => ({
     customization: {
       enabled: true,
       resolve: './customization',
-    }
+    },
+    'editorjs': {
+      enabled: true,
+    },
   });
