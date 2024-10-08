@@ -65,6 +65,15 @@
       "relation": "manyToMany",
       "target": "api::technology.technology",
       "inversedBy": "Projekte"
+    },
+    "link": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "projectTitle"
     }
   }
 }

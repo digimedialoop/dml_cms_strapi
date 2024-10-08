@@ -1437,6 +1437,12 @@ export interface ApiReferenceReference extends Schema.CollectionType {
       'manyToMany',
       'api::technology.technology'
     >;
+    link: Attribute.UID<'api::reference.reference', 'projectTitle'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
