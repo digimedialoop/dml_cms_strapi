@@ -74,6 +74,15 @@
       },
       "type": "uid",
       "targetField": "projectTitle"
+    },
+    "webpage": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "https://"
     }
   }
 }

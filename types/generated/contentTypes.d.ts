@@ -1443,6 +1443,13 @@ export interface ApiReferenceReference extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    webpage: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'https://'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
