@@ -15,7 +15,8 @@ module.exports = [
       },
     },
   },
-  {
+  'strapi::cors',
+  /*{
     name: 'strapi::cors',
     config: {
       origin: ['https://test.digimedialoop.de', 'https://strapi.digimedialoop.de', 'https://digimedialoop.de', 'http://localhost:3000'], // Füge hier deine Domains hinzu
@@ -23,7 +24,7 @@ module.exports = [
       headers: ['Content-Type', 'Authorization'],
       keepHeaderOnError: true,
     },
-  },
+  },*/
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
