@@ -65,6 +65,14 @@
         "sections.standard-section",
         "sections.page-components"
       ]
+    },
+    "pageLink": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
