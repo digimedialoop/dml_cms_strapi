@@ -70,6 +70,13 @@
         "videos",
         "audios"
       ]
+    },
+    "profileImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
