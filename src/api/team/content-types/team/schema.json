@@ -68,6 +68,12 @@
         }
       },
       "type": "text"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::newsarticel.newsarticel",
+      "mappedBy": "author"
     }
   }
 }

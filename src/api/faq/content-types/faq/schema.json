@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "faq"
+    "displayName": "FAQs",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,20 @@
         }
       },
       "type": "integer"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::page.page",
+      "inversedBy": "faqs"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }

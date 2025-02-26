@@ -4,7 +4,7 @@
   "info": {
     "singularName": "newsarticel",
     "pluralName": "newsarticels",
-    "displayName": "Nachrichten",
+    "displayName": "Wissenswertes",
     "description": ""
   },
   "options": {
@@ -70,6 +70,22 @@
         }
       },
       "type": "richtext"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "elements.seo"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "articles"
     }
   }
 }

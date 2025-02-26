@@ -799,71 +799,6 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
   };
 }
 
-export interface ApiButtonButton extends Schema.CollectionType {
-  collectionName: 'buttons';
-  info: {
-    singularName: 'button';
-    pluralName: 'buttons';
-    displayName: 'Buttons';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    buttonText: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    buttonLink: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    buttonIcon: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    buttonTarget: Attribute.Enumeration<['_blank', '_self']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<'_self'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::button.button',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::button.button',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::button.button',
-      'oneToMany',
-      'api::button.button'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiCompanyinfoCompanyinfo extends Schema.SingleType {
   collectionName: 'companyinfos';
   info: {
@@ -988,42 +923,13 @@ export interface ApiCustomerCustomer extends Schema.CollectionType {
   };
 }
 
-export interface ApiDesignDesign extends Schema.CollectionType {
-  collectionName: 'designs';
-  info: {
-    singularName: 'design';
-    pluralName: 'designs';
-    displayName: 'Designs';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    styleName: Attribute.String;
-    target: Attribute.Enumeration<['buttons', 'sections']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::design.design',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::design.design',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiFaqFaq extends Schema.CollectionType {
   collectionName: 'faqs';
   info: {
     singularName: 'faq';
     pluralName: 'faqs';
-    displayName: 'faq';
+    displayName: 'FAQs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1047,6 +953,13 @@ export interface ApiFaqFaq extends Schema.CollectionType {
         };
       }>;
     position: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    page: Attribute.Relation<'api::faq.faq', 'manyToOne', 'api::page.page'>;
+    title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1135,7 +1048,7 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
   info: {
     singularName: 'newsarticel';
     pluralName: 'newsarticels';
-    displayName: 'Nachrichten';
+    displayName: 'Wissenswertes';
     description: '';
   };
   options: {
@@ -1184,6 +1097,17 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    SEO: Attribute.Component<'elements.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    author: Attribute.Relation<
+      'api::newsarticel.newsarticel',
+      'manyToOne',
+      'api::team.team'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1203,70 +1127,6 @@ export interface ApiNewsarticelNewsarticel extends Schema.CollectionType {
       'api::newsarticel.newsarticel',
       'oneToMany',
       'api::newsarticel.newsarticel'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiPackagePackage extends Schema.CollectionType {
-  collectionName: 'packages';
-  info: {
-    singularName: 'package';
-    pluralName: 'packages';
-    displayName: 'Pakete';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    titel: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    price: Attribute.Decimal &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::package.package',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::package.package',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::package.package',
-      'oneToMany',
-      'api::package.package'
     >;
     locale: Attribute.String;
   };
@@ -1327,6 +1187,7 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    faqs: Attribute.Relation<'api::page.page', 'oneToMany', 'api::faq.faq'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1584,6 +1445,11 @@ export interface ApiTeamTeam extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    articles: Attribute.Relation<
+      'api::team.team',
+      'oneToMany',
+      'api::newsarticel.newsarticel'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1740,15 +1606,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::appointment.appointment': ApiAppointmentAppointment;
-      'api::button.button': ApiButtonButton;
       'api::companyinfo.companyinfo': ApiCompanyinfoCompanyinfo;
       'api::contact.contact': ApiContactContact;
       'api::customer.customer': ApiCustomerCustomer;
-      'api::design.design': ApiDesignDesign;
       'api::faq.faq': ApiFaqFaq;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::newsarticel.newsarticel': ApiNewsarticelNewsarticel;
-      'api::package.package': ApiPackagePackage;
       'api::page.page': ApiPagePage;
       'api::pagecomponent.pagecomponent': ApiPagecomponentPagecomponent;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;

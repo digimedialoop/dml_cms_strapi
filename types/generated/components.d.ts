@@ -83,16 +83,6 @@ export interface SectionsStandardSection extends Schema.Component {
   attributes: {
     sectionText: Attribute.Blocks;
     sectionImage: Attribute.Media;
-    button: Attribute.Relation<
-      'sections.standard-section',
-      'oneToOne',
-      'api::button.button'
-    >;
-    design: Attribute.Relation<
-      'sections.standard-section',
-      'oneToOne',
-      'api::design.design'
-    >;
   };
 }
 

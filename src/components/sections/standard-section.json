@@ -17,16 +17,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "button": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::button.button"
-    },
-    "design": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::design.design"
     }
   }
 }
